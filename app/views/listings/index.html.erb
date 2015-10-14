@@ -1,0 +1,11 @@
+<h1> Todo's </h1>
+
+<% @listings.each do |listing| %>
+  <ul>
+    <li><%= link_to listing.description, listing_path(listing) %></li>
+    <%= link_to "edit todo", edit_listing_path(listing) %>,
+    <%= link_to "[delete todo]", listing, method: :delete, data: { confirm: "Are you sure?" } %>
+  </ul>
+<% end %>
+
+<%= link_to "Create a new todo", new_listing_path %>
